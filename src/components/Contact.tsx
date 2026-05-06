@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion, type Variants } from "framer-motion";
-import { Mail, MessageCircle, Phone, MapPin, Send, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { Send, Zap } from "lucide-react";
 
 const WHATSAPP_NUMBER = "593958931686"; // +593 95 893 1686
 
@@ -10,20 +10,6 @@ interface FormState {
   phone: string;
   message: string;
 }
-
-const container: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
 
 export function Contact() {
   const [form, setForm] = useState<FormState>({ name: "", email: "", phone: "", message: "" });
@@ -59,7 +45,7 @@ export function Contact() {
   return (
     <>
       {/* ── Contact Section ─────────────────────────────────────────────── */}
-      <section id="contacto" className="relative py-28 md:py-36 overflow-hidden">
+      <section id="contacto" className="relative py-28 md:py-36 overflow-hidden bg-[#0c0d11]">
         {/* Background */}
         <div className="absolute inset-0 pointer-events-none">
           <div
@@ -99,86 +85,10 @@ export function Contact() {
             <span className="gradient-solar">proyecto solar</span>
           </motion.h2>
 
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Left — Info */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
+            {/* Left — Form */}
             <motion.div
-              variants={container}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-60px" }}
-              className="space-y-8"
-            >
-              <motion.p variants={item} className="text-[15px] text-white/55 leading-relaxed max-w-md">
-                ¿Listo para reducir tu factura eléctrica? Escríbenos y en menos de 24 horas
-                te enviamos una cotización personalizada sin costo ni compromiso.
-              </motion.p>
-
-              {/* Contact cards */}
-              <motion.div variants={item} className="space-y-3">
-                {[
-                  {
-                    icon: Mail,
-                    label: "Email",
-                    value: "stalingonzalez@gmail.com",
-                    href: "mailto:stalingonzalez@gmail.com",
-                  },
-                  {
-                    icon: Phone,
-                    label: "WhatsApp",
-                    value: "+593 95 893 1686",
-                    href: `https://wa.me/${WHATSAPP_NUMBER}`,
-                  },
-                  {
-                    icon: MapPin,
-                    label: "Ubicación",
-                    value: "Ecuador — Atención a nivel nacional",
-                    href: undefined,
-                  },
-                ].map((contact) => (
-                  <div
-                    key={contact.label}
-                    className="flex items-center gap-4 p-4 rounded-xl glass hover:border-white/10 transition-colors duration-200 group"
-                  >
-                    <div className="w-9 h-9 rounded-lg bg-solar/10 flex items-center justify-center shrink-0">
-                      <contact.icon className="w-4 h-4 text-solar" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] text-white/35 font-medium uppercase tracking-wider mb-0.5">
-                        {contact.label}
-                      </p>
-                      {contact.href ? (
-                        <a
-                          href={contact.href}
-                          target={contact.href.startsWith("http") ? "_blank" : undefined}
-                          rel="noopener noreferrer"
-                          className="text-[14px] font-medium text-white/80 hover:text-white transition-colors"
-                        >
-                          {contact.value}
-                        </a>
-                      ) : (
-                        <p className="text-[14px] font-medium text-white/80">{contact.value}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* WhatsApp CTA */}
-              <motion.a
-                variants={item}
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 px-6 py-3.5 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] text-sm font-semibold hover:bg-[#25D366]/20 transition-all duration-200 w-fit"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Chatear por WhatsApp
-              </motion.a>
-            </motion.div>
-
-            {/* Right — Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
+              initial={{ opacity: 0, x: -24 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -261,28 +171,44 @@ export function Contact() {
                 </p>
               </form>
             </motion.div>
+
+            {/* Right — Video (centered both axes within the column) */}
+            <motion.div
+              initial={{ opacity: 0, x: 24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="flex items-center justify-center h-full min-h-[300px]"
+            >
+              <div className="w-full aspect-video rounded-2xl overflow-hidden border border-white/[0.07]">
+                <iframe
+                  src="https://www.youtube.com/embed/Z4ciUduVWZ0?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=Z4ciUduVWZ0"
+                  title="ServiciosGonzalez"
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full block border-0"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* ── Footer ──────────────────────────────────────────────────────── */}
-      <footer className="border-t border-white/[0.06] py-10">
+      <footer className="border-t border-white/[0.06] py-10 bg-[#030303]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             {/* Logo */}
             <a href="#hero" className="flex items-center gap-2.5 group">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-solar to-orange-400 flex items-center justify-center">
-                <Zap className="w-3.5 h-3.5 text-white" fill="white" />
-              </div>
               <span className="font-bold text-[14px] tracking-tight text-white/80">
-                Servicios<span className="text-solar">González</span>
+                ServiciosGonzález
               </span>
             </a>
 
             {/* Nav links */}
             <nav className="flex items-center gap-6">
-              {["Inicio", "Nosotros", "Servicios", "Proyectos", "Contacto"].map((label, i) => {
-                const hrefs = ["#hero", "#nosotros", "#servicios", "#proyectos", "#contacto"];
+              {["Inicio", "Nosotros", "Servicios", "Proyectos"].map((label, i) => {
+                const hrefs = ["#hero", "#nosotros", "#servicios", "#proyectos"];
                 return (
                   <a
                     key={label}

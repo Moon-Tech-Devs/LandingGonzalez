@@ -62,7 +62,7 @@ const item: Variants = {
 
 export function Projects() {
   return (
-    <section id="proyectos" className="relative py-28 md:py-36 overflow-hidden">
+    <section id="proyectos" className="relative py-28 md:py-36 overflow-hidden bg-[#030303]">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div

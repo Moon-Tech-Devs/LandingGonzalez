@@ -7,6 +7,7 @@ interface GooeyTextProps {
   cooldownTime?: number;
   className?: string;
   textClassName?: string;
+  align?: "start" | "center" | "end";
 }
 
 export function GooeyText({
@@ -15,6 +16,7 @@ export function GooeyText({
   cooldownTime = 0.25,
   className,
   textClassName,
+  align = "center",
 }: GooeyTextProps) {
   const text1Ref = useRef<HTMLSpanElement>(null);
   const text2Ref = useRef<HTMLSpanElement>(null);
@@ -99,6 +101,13 @@ export function GooeyText({
     };
   }, [texts, morphTime, cooldownTime]);
 
+  const alignClasses =
+    align === "start"
+      ? "items-start justify-start text-left"
+      : align === "end"
+        ? "items-end justify-end text-right"
+        : "items-center justify-center text-center";
+
   return (
     <div className={cn("relative", className)}>
       <svg className="absolute h-0 w-0" aria-hidden="true" focusable="false">
@@ -117,13 +126,13 @@ export function GooeyText({
       </svg>
 
       <div
-        className="flex items-center justify-center"
+        className={cn("flex", alignClasses)}
         style={{ filter: "url(#threshold)" }}
       >
         <span
           ref={text1Ref}
           className={cn(
-            "absolute inline-block select-none text-center text-6xl md:text-[45pt]",
+            "absolute inline-block select-none text-6xl md:text-[45pt]",
             "text-white",
             textClassName
           )}
@@ -132,7 +141,7 @@ export function GooeyText({
         <span
           ref={text2Ref}
           className={cn(
-            "absolute inline-block select-none text-center text-6xl md:text-[45pt]",
+            "absolute inline-block select-none text-6xl md:text-[45pt]",
             "text-white",
             textClassName
           )}

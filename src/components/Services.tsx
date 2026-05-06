@@ -18,51 +18,43 @@ const statuses = [
 ];
 
 function MarqueeProjects() {
-  const loop = [...projects, ...projects, ...projects, ...projects];
-
   return (
-    <div className="h-full overflow-hidden px-3 pb-3 [mask-image:linear-gradient(to_bottom,transparent_0%,black_12%,black_88%,transparent_100%)]">
-      <motion.div
-        animate={{ y: [0, -420] }}
-        transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
-        className="space-y-2"
-      >
-        {loop.map((project, idx) => (
-          <figure
-            key={`${project.name}-${idx}`}
-            className="rounded-xl border border-white/10 bg-black/35 p-2.5 backdrop-blur-sm"
-          >
-            <figcaption className="text-sm font-semibold text-white">{project.name}</figcaption>
-            <blockquote className="mt-1 text-xs leading-relaxed text-slate-200/85">{project.body}</blockquote>
-          </figure>
-        ))}
-      </motion.div>
+    <div className="flex flex-col">
+      {projects.map((project, idx) => (
+        <figure
+          key={`${project.name}-${idx}`}
+          className="mb-2 rounded-xl border border-white/10 bg-black/35 p-2.5 backdrop-blur-sm"
+        >
+          <figcaption className="text-[13px] font-semibold text-white">{project.name}</figcaption>
+          <blockquote className="mt-0.5 text-[11px] leading-relaxed text-slate-200/85">{project.body}</blockquote>
+        </figure>
+      ))}
     </div>
   );
 }
 
 function MonitoringList() {
   return (
-    <div className="h-full px-3 pb-3">
-      <div className="space-y-2">
+    <div className="h-full">
+      <div className="space-y-1.5">
         {statuses.map((status, idx) => (
           <motion.div
             key={status.label}
             initial={{ opacity: 0, x: 12 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: idx * 0.1, duration: 0.4 }}
-            className="grid grid-cols-[1fr_auto] items-center gap-3 rounded-xl border border-white/10 bg-black/35 px-3 py-2"
+            transition={{ delay: idx * 0.08, duration: 0.4 }}
+            className="grid grid-cols-[1fr_auto] items-center gap-3 rounded-lg border border-white/10 bg-black/35 px-2.5 py-1.5"
           >
             <div className="flex min-w-0 items-center gap-2">
               <span
                 className={cn(
-                  "size-2 rounded-full",
-                  status.tone === "ok" ? "bg-[#FFAB40] shadow-[0_0_8px_rgba(255,171,64,0.8)]" : "bg-white/80"
+                  "size-1.5 rounded-full shrink-0",
+                  status.tone === "ok" ? "bg-[#FFAB40] shadow-[0_0_6px_rgba(255,171,64,0.8)]" : "bg-white/80"
                 )}
               />
-              <span className="truncate text-xs text-slate-200">{status.label}</span>
+              <span className="truncate text-[11px] text-slate-200">{status.label}</span>
             </div>
-            <span className="justify-self-end text-right text-xs font-semibold text-white">{status.value}</span>
+            <span className="justify-self-end text-right text-[11px] font-semibold text-white">{status.value}</span>
           </motion.div>
         ))}
       </div>
@@ -81,13 +73,13 @@ function MaintenanceCalendar() {
   ];
 
   return (
-    <div className="h-full px-3 pb-3">
-      <div className="rounded-xl border border-white/10 bg-black/30 p-3 backdrop-blur-sm">
-        <div className="mb-3 flex items-center justify-between">
-          <p className="text-xs font-semibold uppercase tracking-wider text-[#FFAB40]">Octubre 2026</p>
-          <p className="text-[10px] text-slate-200">Limpieza Anual</p>
+    <div className="h-full">
+      <div className="rounded-lg border border-white/10 bg-black/30 p-2.5 backdrop-blur-sm">
+        <div className="mb-2 flex items-center justify-between">
+          <p className="text-[10px] font-semibold uppercase tracking-wider text-[#FFAB40]">Octubre 2026</p>
+          <p className="text-[9px] text-slate-200">Limpieza Anual</p>
         </div>
-        <div className="grid grid-cols-7 gap-0.5 text-center text-[10px] text-slate-200/75">
+        <div className="grid grid-cols-7 gap-0.5 text-center text-[9px] text-slate-200/75">
           {days.map((d) => (
             <span key={d}>{d}</span>
           ))}
@@ -95,9 +87,9 @@ function MaintenanceCalendar() {
             <div
               key={idx}
               className={cn(
-                "rounded-md py-1",
+                "rounded py-0.5",
                 d === 22
-                  ? "bg-[#FF6B1A] font-semibold text-white shadow-[0_0_20px_rgba(255,107,26,0.55)]"
+                  ? "bg-[#FF6B1A] font-semibold text-white shadow-[0_0_14px_rgba(255,107,26,0.55)]"
                   : "text-slate-200"
               )}
             >
@@ -105,7 +97,7 @@ function MaintenanceCalendar() {
             </div>
           ))}
         </div>
-        <p className="mt-2 text-[10px] text-slate-200/85">22 Oct: Service Checkup y calibracion de inversor.</p>
+        <p className="mt-1.5 text-[9px] text-slate-200/85">22 Oct: Service Checkup y calibracion de inversor.</p>
       </div>
     </div>
   );
@@ -133,27 +125,27 @@ function ServiceCard({
   return (
     <article
       className={cn(
-        "group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm",
+        "group relative h-full overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-sm",
         className
       )}
     >
       <div className="relative z-10 flex h-full flex-col">
-        <div className="mb-4 flex size-10 items-center justify-center rounded-xl bg-[#FF6B1A]/12 text-[#FF6B1A]">
-          <Icon className="size-5" />
+        <div className="mb-2.5 flex size-8 items-center justify-center rounded-lg bg-[#FF6B1A]/12 text-[#FF6B1A]">
+          <Icon className="size-4" />
         </div>
 
-        <h3 className="text-2xl font-bold tracking-tight text-white">{title}</h3>
-        <p className="mt-2 text-sm leading-relaxed text-slate-200">{description}</p>
+        <h3 className="text-lg font-bold tracking-tight text-white leading-tight">{title}</h3>
+        <p className="mt-1 text-[12px] leading-relaxed text-slate-200/85">{description}</p>
 
-        <div className="mt-5 flex-1">{children}</div>
+        <div className="mt-3 flex-1 min-h-0">{children}</div>
 
         {cta && href ? (
           <a
             href={href}
-            className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[#FFAB40] transition-colors hover:text-[#FF6B1A]"
+            className="mt-3 inline-flex w-fit items-center gap-1.5 text-[12px] font-semibold text-[#FFAB40] transition-colors hover:text-[#FF6B1A]"
           >
             {cta}
-            <ArrowRight className="size-4" />
+            <ArrowRight className="size-3.5" />
           </a>
         ) : null}
       </div>
@@ -163,7 +155,7 @@ function ServiceCard({
 
 export function Services() {
   return (
-    <section id="servicios" className="relative py-28 md:py-36 overflow-hidden">
+    <section id="servicios" className="relative py-28 md:py-36 overflow-hidden bg-[#0c0d11]">
       {/* Subtle background glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03] pointer-events-none"
         style={{ background: "radial-gradient(circle, #FF6B1A, transparent)", transform: "translate(30%, -30%)" }} />
@@ -198,7 +190,7 @@ export function Services() {
         </div>
 
         <BentoGridShowcase
-          className="auto-rows-[minmax(200px,auto)]"
+          className="auto-rows-[minmax(150px,auto)] gap-3"
           integration={
             <ServiceCard
               icon={Sun}
@@ -206,7 +198,7 @@ export function Services() {
               description="Instalaciones premium para hogares y empresas en todo Ecuador."
               cta="Ver portafolio"
               href="#proyectos"
-              className="md:min-h-[420px]"
+              className="md:min-h-[330px]"
             >
               <MarqueeProjects />
             </ServiceCard>
@@ -226,14 +218,14 @@ export function Services() {
               title="Ahorro Inteligente"
               description="Reduccion de factura electrica con alta estabilidad operativa."
             >
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-white/10 bg-black/25 p-3">
-                  <p className="text-[11px] uppercase tracking-wide text-slate-200">Ahorro estimado</p>
-                  <p className="mt-1 text-2xl font-black text-white">90%</p>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="rounded-lg border border-white/10 bg-black/25 p-2.5">
+                  <p className="text-[9px] uppercase tracking-wide text-slate-200/80">Ahorro estimado</p>
+                  <p className="mt-0.5 text-xl font-black text-white">90%</p>
                 </div>
-                <div className="rounded-xl border border-white/10 bg-black/25 p-3">
-                  <p className="text-[11px] uppercase tracking-wide text-slate-200">Retorno</p>
-                  <p className="mt-1 text-2xl font-black text-white">4-6 anos</p>
+                <div className="rounded-lg border border-white/10 bg-black/25 p-2.5">
+                  <p className="text-[9px] uppercase tracking-wide text-slate-200/80">Retorno</p>
+                  <p className="mt-0.5 text-xl font-black text-white">4-6 años</p>
                 </div>
               </div>
             </ServiceCard>
