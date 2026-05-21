@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import senorH from "@/assets/señorhorizontal.jpg";
-import senorV from "@/assets/señorvertical.jpg";
+import senorV1 from "@/assets/vertical-10.jpeg";
+import senorV2 from "@/assets/vertical-02.jpeg";
 
-const aboutImages = [senorV, senorH];
+const aboutImages = [senorV1, senorV2];
 
 const container: Variants = {
   hidden: {},
@@ -28,7 +28,7 @@ export function About() {
   const prev = () => setImgIdx((i) => (i - 1 + aboutImages.length) % aboutImages.length);
 
   return (
-    <section id="nosotros" className="relative py-28 md:py-36 bg-[#030303]">
+    <section id="nosotros" className="relative py-28 md:py-36 bg-ash">
       {/* Section A — base black */}
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
 
@@ -40,8 +40,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="flex items-center gap-3 mb-5"
         >
-          <div className="w-6 h-px bg-electric" />
-          <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-electric">
+          <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-solar">
             Sobre Nosotros
           </span>
         </motion.div>
@@ -63,7 +62,7 @@ export function About() {
               Tu socio de confianza
               <br />
               en{" "}
-              <span className="gradient-electric">energía solar</span>
+              <span className="gradient-solar">energía solar</span>
             </motion.h2>
 
             <motion.div variants={item} className="space-y-5 text-white/55 leading-relaxed">
@@ -89,7 +88,7 @@ export function About() {
             <motion.a
               variants={item}
               href="#contacto"
-              className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full border border-electric/30 text-electric text-sm font-semibold hover:bg-electric/10 transition-all duration-200"
+              className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full border border-white/70 text-solar text-sm font-semibold hover:bg-solar/10 transition-all duration-200"
             >
               Conoce más sobre nosotros
             </motion.a>

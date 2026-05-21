@@ -49,7 +49,7 @@ function MonitoringList() {
               <span
                 className={cn(
                   "size-1.5 rounded-full shrink-0",
-                  status.tone === "ok" ? "bg-[#FFAB40] shadow-[0_0_6px_rgba(255,171,64,0.8)]" : "bg-white/80"
+                  status.tone === "ok" ? "bg-sunrise shadow-[0_0_6px_rgba(255,171,64,0.8)]" : "bg-white/80"
                 )}
               />
               <span className="truncate text-[11px] text-slate-200">{status.label}</span>
@@ -89,7 +89,7 @@ function MaintenanceCalendar() {
               className={cn(
                 "rounded py-0.5",
                 d === 22
-                  ? "bg-[#FF6B1A] font-semibold text-white shadow-[0_0_14px_rgba(255,107,26,0.55)]"
+                  ? "bg-solar font-semibold text-white shadow-[0_0_14px_rgba(255,107,26,0.55)]"
                   : "text-slate-200"
               )}
             >
@@ -130,7 +130,7 @@ function ServiceCard({
       )}
     >
       <div className="relative z-10 flex h-full flex-col">
-        <div className="mb-2.5 flex size-8 items-center justify-center rounded-lg bg-[#FF6B1A]/12 text-[#FF6B1A]">
+        <div className="mb-2.5 flex size-8 items-center justify-center rounded-lg bg-solar/12 text-[#FF6B1A]">
           <Icon className="size-4" />
         </div>
 
@@ -155,7 +155,7 @@ function ServiceCard({
 
 export function Services() {
   return (
-    <section id="servicios" className="relative py-28 md:py-36 overflow-hidden bg-[#0c0d11]">
+    <section id="servicios" className="relative py-28 md:py-36 overflow-hidden bg-night">
       {/* Subtle background glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-[0.03] pointer-events-none"
         style={{ background: "radial-gradient(circle, #FF6B1A, transparent)", transform: "translate(30%, -30%)" }} />
@@ -170,7 +170,6 @@ export function Services() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-3 mb-5"
           >
-            <div className="w-6 h-px bg-solar" />
             <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-solar">
               Nuestros Servicios
             </span>

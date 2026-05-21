@@ -3,11 +3,11 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
-import img1 from "@/assets/Depositphotos_5111838_xl-2015-min-scaled.jpg";
-import img2 from "@/assets/MB-SOLAR-GALAR-BULNES-FIT.jpg";
-import img3 from "@/assets/panelesSolares.jpg";
-import img4 from "@/assets/paneles-solares-en-casa.jpg";
-import img5 from "@/assets/paneles_solares_precios_para_casas_600x600.webp";
+import img1 from "@/assets/horizontal-05.jpeg";
+import img2 from "@/assets/horizontal-15.jpeg";
+import img3 from "@/assets/horizontal-13.jpeg";
+import img4 from "@/assets/horizontal-22.jpeg";
+import img5 from "@/assets/horizontal-24.jpeg";
 
 const carouselImages = [img1, img2, img3, img4, img5];
 

@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Zap } from "lucide-react";
+import { Send } from "lucide-react";
+import { VideoCarousel } from "@/components/VideoCarousel";
+
+const CONTACT_VIDEOS = [
+  "https://wedworbjgejmvqcqcuhn.supabase.co/storage/v1/object/public/GonzalezVids/WhatsApp%20Video%202026-05-13%20at%208.47.32%20PM.mp4",
+  "https://wedworbjgejmvqcqcuhn.supabase.co/storage/v1/object/public/GonzalezVids/WhatsApp%20Video%202026-05-13%20at%208.47.36%20PM%20(1).mp4",
+  "https://wedworbjgejmvqcqcuhn.supabase.co/storage/v1/object/public/GonzalezVids/WhatsApp%20Video%202026-05-13%20at%208.47.39%20PM%20(1).mp4",
+  "https://wedworbjgejmvqcqcuhn.supabase.co/storage/v1/object/public/GonzalezVids/WhatsApp%20Video%202026-05-13%20at%208.47.39%20PM.mp4",
+  "https://wedworbjgejmvqcqcuhn.supabase.co/storage/v1/object/public/GonzalezVids/WhatsApp%20Video%202026-05-13%20at%208.47.40%20PM.mp4",
+  "https://wedworbjgejmvqcqcuhn.supabase.co/storage/v1/object/public/GonzalezVids/WhatsApp%20Video%202026-05-13%20at%208.47.41%20PM.mp4",
+];
 
 const WHATSAPP_NUMBER = "593958931686"; // +593 95 893 1686
 
@@ -43,9 +53,7 @@ export function Contact() {
     "w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-[14px] text-white placeholder-white/25 outline-none focus:border-electric/50 focus:bg-white/[0.06] transition-all duration-200";
 
   return (
-    <>
-      {/* ── Contact Section ─────────────────────────────────────────────── */}
-      <section id="contacto" className="relative py-28 md:py-36 overflow-hidden bg-[#0c0d11]">
+    <section id="contacto" className="relative py-28 md:py-36 overflow-hidden bg-ash">
         {/* Background */}
         <div className="absolute inset-0 pointer-events-none">
           <div
@@ -66,7 +74,6 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-3 mb-5"
           >
-            <div className="w-6 h-px bg-solar" />
             <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-solar">
               Contacto
             </span>
@@ -180,54 +187,10 @@ export function Contact() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               className="flex items-center justify-center h-full min-h-[300px]"
             >
-              <div className="w-full aspect-video rounded-2xl overflow-hidden border border-white/[0.07]">
-                <iframe
-                  src="https://www.youtube.com/embed/Z4ciUduVWZ0?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=Z4ciUduVWZ0"
-                  title="ServiciosGonzalez"
-                  allow="autoplay; encrypted-media; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full block border-0"
-                />
-              </div>
+              <VideoCarousel videos={CONTACT_VIDEOS} />
             </motion.div>
           </div>
         </div>
-      </section>
-
-      {/* ── Footer ──────────────────────────────────────────────────────── */}
-      <footer className="border-t border-white/[0.06] py-10 bg-[#030303]">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-            {/* Logo */}
-            <a href="#hero" className="flex items-center gap-2.5 group">
-              <span className="font-bold text-[14px] tracking-tight text-white/80">
-                ServiciosGonzález
-              </span>
-            </a>
-
-            {/* Nav links */}
-            <nav className="flex items-center gap-6">
-              {["Inicio", "Nosotros", "Servicios", "Proyectos"].map((label, i) => {
-                const hrefs = ["#hero", "#nosotros", "#servicios", "#proyectos"];
-                return (
-                  <a
-                    key={label}
-                    href={hrefs[i]}
-                    className="text-[12px] text-white/35 hover:text-white/70 transition-colors"
-                  >
-                    {label}
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Copyright */}
-            <p className="text-[12px] text-white/25">
-              © {new Date().getFullYear()} ServiciosGonzalez
-            </p>
-          </div>
-        </div>
-      </footer>
-    </>
+    </section>
   );
 }

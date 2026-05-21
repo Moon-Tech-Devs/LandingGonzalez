@@ -1,47 +1,54 @@
 import { motion, type Variants } from "framer-motion";
 import { MapPin, ArrowUpRight } from "lucide-react";
 
+import proj1 from "@/assets/horizontal-15.jpeg";
+import proj2 from "@/assets/horizontal-08.jpeg";
+import proj3 from "@/assets/horizontal-09.jpeg";
+import proj4 from "@/assets/horizontal-05.jpeg";
+import proj5 from "@/assets/horizontal-18.jpeg";
+import proj6 from "@/assets/horizontal-07.jpeg";
+
 const projects = [
   {
     title: "Residencia Familiar — Quito Norte",
     type: "Residencial · 8 kWp",
     location: "Quito, Ecuador",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80&auto=format&fit=crop",
+    image: proj1,
     featured: true,
   },
   {
     title: "Planta Industrial — Guayaquil",
     type: "Industrial · 120 kWp",
     location: "Guayaquil, Ecuador",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80&auto=format&fit=crop",
+    image: proj2,
     featured: false,
   },
   {
     title: "Villa Privada — Cumbayá",
     type: "Residencial · 15 kWp",
     location: "Cumbayá, Ecuador",
-    image: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=800&q=80&auto=format&fit=crop",
+    image: proj3,
     featured: false,
   },
   {
     title: "Centro Comercial — Cuenca",
     type: "Comercial · 200 kWp",
     location: "Cuenca, Ecuador",
-    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=800&q=80&auto=format&fit=crop",
+    image: proj4,
     featured: true,
   },
   {
     title: "Oficinas Corporativas — Quito",
     type: "Comercial · 45 kWp",
     location: "Quito, Ecuador",
-    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=80&auto=format&fit=crop",
+    image: proj5,
     featured: false,
   },
   {
     title: "Hotel Boutique — Otavalo",
     type: "Hostelería · 30 kWp",
     location: "Otavalo, Ecuador",
-    image: "https://images.unsplash.com/photo-1611365892117-00ac5ef43c90?w=800&q=80&auto=format&fit=crop",
+    image: proj6,
     featured: false,
   },
 ];
@@ -62,7 +69,7 @@ const item: Variants = {
 
 export function Projects() {
   return (
-    <section id="proyectos" className="relative py-28 md:py-36 overflow-hidden bg-[#030303]">
+    <section id="proyectos" className="relative py-28 md:py-36 overflow-hidden bg-ash">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -85,8 +92,7 @@ export function Projects() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3 mb-5"
             >
-              <div className="w-6 h-px bg-electric" />
-              <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-electric">
+              <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-solar">
                 Portafolio
               </span>
             </motion.div>
@@ -101,7 +107,7 @@ export function Projects() {
             >
               Proyectos que
               <br />
-              <span className="gradient-electric">hablan por sí solos</span>
+              <span className="gradient-solar">hablan por sí solos</span>
             </motion.h2>
           </div>
 

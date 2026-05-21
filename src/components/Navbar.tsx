@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Menu, X, Sun } from "lucide-react";
+import { Menu, X, Sun } from "lucide-react";
 
 const navLinks = [
-  { label: "Inicio", href: "#hero" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Proyectos", href: "#proyectos" },
+  { label: "Inicio", href: "/#hero" },
+  { label: "Nosotros", href: "/#nosotros" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Proyectos", href: "/#proyectos" },
+  { label: "Preguntas", href: "/#faq" },
 ];
 
 export function Navbar() {
@@ -41,7 +42,7 @@ export function Navbar() {
         <div className="flex items-center gap-8">
 
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2.5 group flex-shrink-0">
+          <a href="/#hero" className="flex items-center gap-2.5 group flex-shrink-0">
             <span className="font-bold text-[15px] tracking-[-0.02em] text-white leading-none">
               ServiciosGonzález
             </span>
@@ -64,7 +65,7 @@ export function Navbar() {
           {/* CTA button */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="#contacto"
+              href="/#contacto"
               className="flex items-center gap-2 px-4 py-2 rounded-full text-white text-[13px] font-semibold transition-all duration-200 hover:opacity-90 hover:scale-[1.03] active:scale-[0.98]"
               style={{
                 background: "linear-gradient(135deg, #FF6B1A 0%, #FF8C42 100%)",
@@ -114,7 +115,7 @@ export function Navbar() {
                 </a>
               ))}
               <a
-                href="#contacto"
+                href="/#contacto"
                 onClick={() => setMobileOpen(false)}
                 className="mt-3 flex items-center justify-center gap-2 px-4 py-3 rounded-full text-white text-sm font-semibold"
                 style={{

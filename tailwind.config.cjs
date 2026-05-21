@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors: {
         electric: "#00D4FF",
+        ash: "rgb(12 13 17 / <alpha-value>)",
         solar: "#FF6B1A",
       },
       animation: {
