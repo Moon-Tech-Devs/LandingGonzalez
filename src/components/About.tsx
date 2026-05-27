@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import senorV1 from "@/assets/vertical-10.jpeg";
+import senorV1 from "@/assets/vertical-10.png";
 import senorV2 from "@/assets/vertical-02.jpeg";
 
 const aboutImages = [senorV1, senorV2];

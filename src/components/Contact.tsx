@@ -54,17 +54,6 @@ export function Contact() {
 
   return (
     <section id="contacto" className="relative py-28 md:py-36 overflow-hidden bg-ash">
-        {/* Background */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute top-0 right-0 w-[600px] h-[600px] opacity-[0.04]"
-            style={{
-              background: "radial-gradient(circle, #FF6B1A, transparent)",
-              transform: "translate(40%, -40%)",
-            }}
-          />
-        </div>
-
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
           {/* Header */}
           <motion.div

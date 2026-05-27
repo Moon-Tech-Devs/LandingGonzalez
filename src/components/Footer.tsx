@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Sun, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock } from "lucide-react";
 
 const navLinks = [
   { label: "Inicio", href: "/#hero" },

@@ -1,11 +1,11 @@
 import { motion, type Variants } from "framer-motion";
-import { MapPin, ArrowUpRight } from "lucide-react";
+import { MapPin } from "lucide-react";
 
-import proj1 from "@/assets/horizontal-15.jpeg";
+import proj1 from "@/assets/horizontal-18.jpeg";
 import proj2 from "@/assets/horizontal-08.jpeg";
 import proj3 from "@/assets/horizontal-09.jpeg";
-import proj4 from "@/assets/horizontal-05.jpeg";
-import proj5 from "@/assets/horizontal-18.jpeg";
+import proj4 from "@/assets/horizontal-16.jpeg";
+import proj5 from "@/assets/horizontal-21.jpeg";
 import proj6 from "@/assets/horizontal-07.jpeg";
 
 const projects = [
@@ -70,17 +70,6 @@ const item: Variants = {
 export function Projects() {
   return (
     <section id="proyectos" className="relative py-28 md:py-36 overflow-hidden bg-ash">
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute bottom-0 left-1/2 w-[800px] h-[400px] opacity-[0.035]"
-          style={{
-            background: "radial-gradient(ellipse, #00D4FF, transparent)",
-            transform: "translate(-50%, 30%)",
-          }}
-        />
-      </div>
-
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
@@ -110,18 +99,6 @@ export function Projects() {
               <span className="gradient-solar">hablan por sí solos</span>
             </motion.h2>
           </div>
-
-          <motion.a
-            initial={{ opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            href="#contacto"
-            className="shrink-0 flex items-center gap-2 text-sm font-semibold text-white/50 hover:text-white transition-colors group"
-          >
-            Ver todos los proyectos
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </motion.a>
         </div>
 
         {/* Grid */}
@@ -136,43 +113,32 @@ export function Projects() {
             <motion.div
               key={project.title}
               variants={item}
-              className={`group relative rounded-2xl overflow-hidden cursor-pointer ${project.featured ? "sm:col-span-2 lg:col-span-1" : ""}`}
+              className={`relative rounded-2xl overflow-hidden ${project.featured ? "sm:col-span-2 lg:col-span-1" : ""}`}
               style={{ aspectRatio: project.featured ? "16/9" : "4/3" }}
             >
               {/* Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
               />
 
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-solar/0 group-hover:bg-solar/10 transition-colors duration-300" />
-
-              {/* Border glow on hover */}
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-white/0 group-hover:ring-white/15 transition-all duration-300" />
-
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-5">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-solar mb-1">
-                      {project.type}
-                    </p>
-                    <h3 className="text-[15px] font-bold text-white leading-snug mb-1.5">
-                      {project.title}
-                    </h3>
-                    <div className="flex items-center gap-1.5 text-[12px] text-white/50">
-                      <MapPin className="w-3 h-3" />
-                      {project.location}
-                    </div>
-                  </div>
-                  <div className="shrink-0 w-8 h-8 rounded-full glass flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-                    <ArrowUpRight className="w-3.5 h-3.5 text-white" />
+                <div>
+                  <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-solar mb-1">
+                    {project.type}
+                  </p>
+                  <h3 className="text-[15px] font-bold text-white leading-snug mb-1.5">
+                    {project.title}
+                  </h3>
+                  <div className="flex items-center gap-1.5 text-[12px] text-white/50">
+                    <MapPin className="w-3 h-3" />
+                    {project.location}
                   </div>
                 </div>
               </div>

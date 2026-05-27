@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const sections = [
   {
     id: "informacion",
@@ -57,67 +55,41 @@ export function Privacy() {
   return (
     <main className="bg-night min-h-screen text-white">
       <article className="max-w-3xl mx-auto px-5 sm:px-8 pt-36 pb-28 md:pt-44 md:pb-36">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-3 mb-5"
-        >
+        <div className="flex items-center gap-3 mb-5">
           <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-solar">
             Documento Legal
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        <h1
           className="text-4xl md:text-5xl font-black tracking-tight text-white leading-[1.05]"
           style={{ letterSpacing: "-0.03em" }}
         >
           Política de <span className="gradient-solar">privacidad</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-4 text-[13px] text-white/40"
-        >
+        <p className="mt-4 text-[13px] text-white/40">
           Última actualización: mayo de 2026
-        </motion.p>
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 text-[15px] text-white/65 leading-relaxed"
-        >
+        <p className="mt-8 text-[15px] text-white/65 leading-relaxed">
           En ServiciosGonzález valoramos su privacidad y nos comprometemos a
           proteger sus datos personales conforme a la Ley Orgánica de
           Protección de Datos Personales del Ecuador (LOPDP) y la normativa
           internacional aplicable. Esta política explica qué información
           recopilamos, cómo la usamos y los derechos que le asisten.
-        </motion.p>
+        </p>
 
         <div className="mt-14 space-y-12">
-          {sections.map((section, idx) => (
-            <motion.section
-              id={section.id}
-              key={section.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: Math.min(idx * 0.03, 0.2) }}
-              className="scroll-mt-32"
-            >
+          {sections.map((section) => (
+            <section id={section.id} key={section.id} className="scroll-mt-32">
               <h2 className="text-[22px] md:text-2xl font-semibold text-white mb-3 tracking-tight">
                 {section.title}
               </h2>
               <p className="text-[15px] text-white/65 leading-relaxed">
                 {section.body}
               </p>
-            </motion.section>
+            </section>
           ))}
         </div>
       </article>
