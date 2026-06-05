@@ -28,8 +28,7 @@ export function About() {
   const prev = () => setImgIdx((i) => (i - 1 + aboutImages.length) % aboutImages.length);
 
   return (
-    <section id="nosotros" className="relative py-28 md:py-36 bg-ash">
-      {/* Section A — base black */}
+    <section id="nosotros" className="relative py-28 md:py-36 bg-bone">
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
 
         {/* Section tag */}
@@ -56,7 +55,7 @@ export function About() {
           >
             <motion.h2
               variants={item}
-              className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.05] mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-zinc-900 leading-[1.05] mb-8"
               style={{ letterSpacing: "-0.03em" }}
             >
               Tu socio de confianza
@@ -65,7 +64,7 @@ export function About() {
               <span className="gradient-solar">energía solar</span>
             </motion.h2>
 
-            <motion.div variants={item} className="space-y-5 text-white/55 leading-relaxed">
+            <motion.div variants={item} className="space-y-5 text-zinc-600 leading-relaxed">
               <p>
                 ServiciosGonzalez nació de la convicción de que la energía limpia y
                 asequible debe estar al alcance de todos. Desde nuestros inicios, hemos
@@ -88,7 +87,7 @@ export function About() {
             <motion.a
               variants={item}
               href="#contacto"
-              className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full border border-white/70 text-solar text-sm font-semibold hover:bg-solar/10 transition-all duration-200"
+              className="inline-flex items-center gap-2 mt-8 px-6 py-3 rounded-full border border-zinc-300 text-solar text-sm font-semibold hover:bg-solar/10 transition-all duration-200"
             >
               Conoce más sobre nosotros
             </motion.a>
@@ -102,7 +101,7 @@ export function About() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="relative w-full"
           >
-            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-black/[0.08] shadow-xl">
               <AnimatePresence mode="sync">
                 <motion.img
                   key={imgIdx}

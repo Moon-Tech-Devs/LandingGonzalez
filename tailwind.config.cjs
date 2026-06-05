@@ -10,14 +10,20 @@ module.exports = {
         electric: "#00D4FF",
         ash: "rgb(12 13 17 / <alpha-value>)",
         solar: "#FF6B1A",
+        bone: "#F7F3ED",
       },
       animation: {
         aurora: "aurora 60s linear infinite",
+        marquee: "marquee 48s linear infinite",
       },
       keyframes: {
         aurora: {
           from: { backgroundPosition: "50% 50%, 50% 50%" },
           to: { backgroundPosition: "350% 50%, 350% 50%" },
+        },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
         },
       },
     },

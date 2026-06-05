@@ -31,29 +31,22 @@ export function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ─── WhatsApp Redirect ───────────────────────────────────────────────────
-    // When ready to enable, uncomment the block below and remove the fallback alert.
-    //
-    // const text = encodeURIComponent(
-    //   `Hola ServiciosGonzalez! 👋\n\n` +
-    //   `Nombre: ${form.name}\n` +
-    //   `Email: ${form.email}\n` +
-    //   `Teléfono: ${form.phone}\n\n` +
-    //   `Mensaje: ${form.message}`
-    // );
-    // window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
-    //
-    // ─────────────────────────────────────────────────────────────────────────
+    const text = encodeURIComponent(
+      `Hola ServiciosGonzalez!\n\n` +
+        `Nombre: ${form.name}\n` +
+        `Email: ${form.email}\n` +
+        `Teléfono: ${form.phone || "No indicado"}\n\n` +
+        `Mensaje: ${form.message}`
+    );
 
-    // Temporary feedback during testing — remove when uncommenting WhatsApp redirect above
-    alert(`Formulario listo para enviar a WhatsApp (${WHATSAPP_NUMBER}). Descomenta el bloque de redirección en Contact.tsx para activarlo.`);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener,noreferrer");
   };
 
   const inputClass =
-    "w-full bg-white/[0.04] border border-white/[0.08] rounded-xl px-4 py-3 text-[14px] text-white placeholder-white/25 outline-none focus:border-electric/50 focus:bg-white/[0.06] transition-all duration-200";
+    "w-full bg-white border border-zinc-200 rounded-xl px-4 py-3 text-[14px] text-zinc-900 placeholder-zinc-400 outline-none focus:border-solar/50 focus:ring-2 focus:ring-solar/10 transition-all duration-200";
 
   return (
-    <section id="contacto" className="relative py-28 md:py-36 overflow-hidden bg-ash">
+    <section id="contacto" className="relative py-28 md:py-36 overflow-hidden bg-bone">
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
           {/* Header */}
           <motion.div
@@ -73,7 +66,7 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight mb-16"
+            className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-zinc-900 leading-tight mb-16"
             style={{ letterSpacing: "-0.03em" }}
           >
             Hablemos de tu
@@ -91,11 +84,11 @@ export function Contact() {
             >
               <form
                 onSubmit={handleSubmit}
-                className="glass rounded-2xl p-7 space-y-4 border border-white/[0.07]"
+                className="rounded-2xl p-7 space-y-4 border border-zinc-200 bg-white/80 shadow-sm"
               >
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-[11px] font-semibold text-white/40 uppercase tracking-wider block mb-2">
+                    <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider block mb-2">
                       Nombre *
                     </label>
                     <input
@@ -109,7 +102,7 @@ export function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="text-[11px] font-semibold text-white/40 uppercase tracking-wider block mb-2">
+                    <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider block mb-2">
                       Email *
                     </label>
                     <input
@@ -125,7 +118,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-semibold text-white/40 uppercase tracking-wider block mb-2">
+                  <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider block mb-2">
                     Teléfono / WhatsApp
                   </label>
                   <input
@@ -139,7 +132,7 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label className="text-[11px] font-semibold text-white/40 uppercase tracking-wider block mb-2">
+                  <label className="text-[11px] font-semibold text-zinc-500 uppercase tracking-wider block mb-2">
                     Mensaje *
                   </label>
                   <textarea
@@ -162,7 +155,7 @@ export function Contact() {
                   Enviar Cotización
                 </button>
 
-                <p className="text-[11px] text-white/25 text-center leading-relaxed">
+                <p className="text-[11px] text-zinc-400 text-center leading-relaxed">
                   Al enviar, el formulario redirige a WhatsApp para una respuesta inmediata.
                 </p>
               </form>
