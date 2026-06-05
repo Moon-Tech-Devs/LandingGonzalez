@@ -117,7 +117,15 @@ export function Footer() {
             © {year} ServiciosGonzález. Todos los derechos reservados.
           </p>
           <p className="text-[12px] text-white/30">
-            Diseñado con energía limpia en Ecuador.
+            Desarrollado por{" "}
+            <a
+              href="https://codidevs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/50 hover:text-solar transition-colors"
+            >
+              Codidevs.com
+            </a>
           </p>
         </div>
       </div>

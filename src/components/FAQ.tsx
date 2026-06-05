@@ -27,10 +27,6 @@ const faqs = [
     a: "Los sistemas solares requieren mantenimiento mínimo. Recomendamos una limpieza de paneles y revisión técnica al menos una vez al año para asegurar máxima eficiencia. Ofrecemos planes de mantenimiento preventivo con monitoreo remoto del sistema las 24 horas para detectar cualquier anomalía a tiempo.",
   },
   {
-    q: "¿Existe financiamiento o formas de pago a plazos?",
-    a: "Sí. Trabajamos con varias entidades financieras del Ecuador que ofrecen créditos verdes a tasas preferenciales, con plazos de hasta 60 meses. También aceptamos pago directo, transferencias y tarjetas de crédito con diferidos. En muchos casos, la cuota mensual del crédito es menor que tu planilla de luz actual.",
-  },
-  {
     q: "¿Los paneles funcionan con la regulación de ARCONEL en Ecuador?",
     a: "Sí. Todas nuestras instalaciones cumplen con la regulación ARCONEL Nro. 003/18 sobre microgeneración fotovoltaica y el marco normativo vigente. Realizamos los trámites de calificación ante la empresa distribuidora correspondiente para que tu sistema pueda inyectar excedentes a la red bajo el esquema de net-metering.",
   },
